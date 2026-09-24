@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{8F2A1B3C-4D5E-4F6A-9B7C-8D9E0F1A2B3C}|WebAPI-simple\\WebAPI-simple.csproj|solutionrelative:webapi-simple\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Migrations\\20260924071547_InitialDatabaseMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebAPI-simple\\Migrations\\20260924071547_InitialDatabaseMigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F2A1B3C-4D5E-4F6A-9B7C-8D9E0F1A2B3C}|WebAPI-simple\\WebAPI-simple.csproj|c:\\users\\dodan\\downloads\\webapi-simple\\webapi-simple\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F2A1B3C-4D5E-4F6A-9B7C-8D9E0F1A2B3C}|WebAPI-simple\\WebAPI-simple.csproj|solutionrelative:webapi-simple\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8F2A1B3C-4D5E-4F6A-9B7C-8D9E0F1A2B3C}|WebAPI-simple\\WebAPI-simple.csproj|c:\\users\\dodan\\downloads\\webapi-simple\\webapi-simple\\models\\dto\\bookwithauthorandpublisherdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F2A1B3C-4D5E-4F6A-9B7C-8D9E0F1A2B3C}|WebAPI-simple\\WebAPI-simple.csproj|solutionrelative:webapi-simple\\models\\dto\\bookwithauthorandpublisherdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -37,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8F2A1B3C-4D5E-4F6A-9B7C-8D9E0F1A2B3C}|WebAPI-simple\\WebAPI-simple.csproj|c:\\users\\dodan\\downloads\\webapi-simple\\webapi-simple\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F2A1B3C-4D5E-4F6A-9B7C-8D9E0F1A2B3C}|WebAPI-simple\\WebAPI-simple.csproj|solutionrelative:webapi-simple\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F2A1B3C-4D5E-4F6A-9B7C-8D9E0F1A2B3C}|WebAPI-simple\\WebAPI-simple.csproj|c:\\users\\dodan\\downloads\\webapi-simple\\webapi-simple\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F2A1B3C-4D5E-4F6A-9B7C-8D9E0F1A2B3C}|WebAPI-simple\\WebAPI-simple.csproj|solutionrelative:webapi-simple\\controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,31 +62,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Book_Author.cs",
-              "DocumentMoniker": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Models\\Domain\\Book_Author.cs",
-              "RelativeDocumentMoniker": "WebAPI-simple\\Models\\Domain\\Book_Author.cs",
-              "ToolTip": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Models\\Domain\\Book_Author.cs",
-              "RelativeToolTip": "WebAPI-simple\\Models\\Domain\\Book_Author.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAHAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "20260924071547_InitialDatabaseMigration.cs",
+              "DocumentMoniker": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Migrations\\20260924071547_InitialDatabaseMigration.cs",
+              "RelativeDocumentMoniker": "WebAPI-simple\\Migrations\\20260924071547_InitialDatabaseMigration.cs",
+              "ToolTip": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Migrations\\20260924071547_InitialDatabaseMigration.cs",
+              "RelativeToolTip": "WebAPI-simple\\Migrations\\20260924071547_InitialDatabaseMigration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T09:25:10.861Z"
+              "WhenOpened": "2026-09-24T07:15:48.117Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Publisher.cs",
-              "DocumentMoniker": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Models\\Domain\\Publisher.cs",
-              "RelativeDocumentMoniker": "WebAPI-simple\\Models\\Domain\\Publisher.cs",
-              "ToolTip": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Models\\Domain\\Publisher.cs",
-              "RelativeToolTip": "WebAPI-simple\\Models\\Domain\\Publisher.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T09:25:07.226Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Models\\Domain\\Book.cs",
               "RelativeDocumentMoniker": "WebAPI-simple\\Models\\Domain\\Book.cs",
@@ -90,11 +83,12 @@
               "RelativeToolTip": "WebAPI-simple\\Models\\Domain\\Book.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T09:24:56.426Z"
+              "WhenOpened": "2026-09-23T09:24:56.426Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Author.cs",
               "DocumentMoniker": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Models\\Domain\\Author.cs",
               "RelativeDocumentMoniker": "WebAPI-simple\\Models\\Domain\\Author.cs",
@@ -102,11 +96,12 @@
               "RelativeToolTip": "WebAPI-simple\\Models\\Domain\\Author.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T09:24:53.48Z"
+              "WhenOpened": "2026-09-23T09:24:53.48Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "BookWithAuthorAndPublisherDTO.cs",
               "DocumentMoniker": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Models\\DTO\\BookWithAuthorAndPublisherDTO.cs",
               "RelativeDocumentMoniker": "WebAPI-simple\\Models\\DTO\\BookWithAuthorAndPublisherDTO.cs",
@@ -114,11 +109,12 @@
               "RelativeToolTip": "WebAPI-simple\\Models\\DTO\\BookWithAuthorAndPublisherDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T09:24:44.24Z"
+              "WhenOpened": "2026-09-23T09:24:44.24Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "addBookRequestDTO.cs",
               "DocumentMoniker": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Models\\DTO\\addBookRequestDTO.cs",
               "RelativeDocumentMoniker": "WebAPI-simple\\Models\\DTO\\addBookRequestDTO.cs",
@@ -126,7 +122,8 @@
               "RelativeToolTip": "WebAPI-simple\\Models\\DTO\\addBookRequestDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T09:24:42.969Z"
+              "WhenOpened": "2026-09-23T09:24:42.969Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -136,14 +133,14 @@
               "RelativeDocumentMoniker": "WebAPI-simple\\appsettings.json",
               "ToolTip": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\appsettings.json",
               "RelativeToolTip": "WebAPI-simple\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-09-23T09:24:39.508Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "WebAPI-simple\\Data\\AppDbContext.cs",
@@ -151,11 +148,38 @@
               "RelativeToolTip": "WebAPI-simple\\Data\\AppDbContext.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAYwA8AAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T09:24:28.433Z"
+              "WhenOpened": "2026-09-23T09:24:28.433Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
+              "Title": "BooksController.cs",
+              "DocumentMoniker": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Controllers\\BooksController.cs",
+              "RelativeDocumentMoniker": "WebAPI-simple\\Controllers\\BooksController.cs",
+              "ToolTip": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Controllers\\BooksController.cs",
+              "RelativeToolTip": "WebAPI-simple\\Controllers\\BooksController.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAawDEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-23T09:23:56.916Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Publisher.cs",
+              "DocumentMoniker": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Models\\Domain\\Publisher.cs",
+              "RelativeDocumentMoniker": "WebAPI-simple\\Models\\Domain\\Publisher.cs",
+              "ToolTip": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Models\\Domain\\Publisher.cs",
+              "RelativeToolTip": "WebAPI-simple\\Models\\Domain\\Publisher.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-23T09:25:07.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "WeatherForecastController.cs",
               "DocumentMoniker": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Controllers\\WeatherForecastController.cs",
               "RelativeDocumentMoniker": "WebAPI-simple\\Controllers\\WeatherForecastController.cs",
@@ -163,19 +187,21 @@
               "RelativeToolTip": "WebAPI-simple\\Controllers\\WeatherForecastController.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T09:24:21.282Z"
+              "WhenOpened": "2026-09-23T09:24:21.282Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BooksController.cs",
-              "DocumentMoniker": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Controllers\\BooksController.cs",
-              "RelativeDocumentMoniker": "WebAPI-simple\\Controllers\\BooksController.cs",
-              "ToolTip": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Controllers\\BooksController.cs",
-              "RelativeToolTip": "WebAPI-simple\\Controllers\\BooksController.cs",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAowGMAAAALAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Book_Author.cs",
+              "DocumentMoniker": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Models\\Domain\\Book_Author.cs",
+              "RelativeDocumentMoniker": "WebAPI-simple\\Models\\Domain\\Book_Author.cs",
+              "ToolTip": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\Models\\Domain\\Book_Author.cs",
+              "RelativeToolTip": "WebAPI-simple\\Models\\Domain\\Book_Author.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T09:23:56.916Z"
+              "WhenOpened": "2026-09-23T09:25:10.861Z",
+              "EditorCaption": ""
             }
           ]
         }
