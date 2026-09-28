@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V1IXhgstivw=",
+  "dgSpecHash": "Vg0yGXh15Mo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\WebAPI-simple.csproj",
+  "projectFilePath": "D:\\lap trinh wweb 2\\WebAPI-simple\\WebAPI-simple\\WebAPI-simple.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dodan\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\dodan\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -2232,11 +2232,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\WebAPI-simple.csproj",
+      "projectUniqueName": "D:\\lap trinh wweb 2\\WebAPI-simple\\WebAPI-simple\\WebAPI-simple.csproj",
       "projectName": "WebAPI-simple",
-      "projectPath": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\WebAPI-simple.csproj",
+      "projectPath": "D:\\lap trinh wweb 2\\WebAPI-simple\\WebAPI-simple\\WebAPI-simple.csproj",
       "packagesPath": "C:\\Users\\dodan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dodan\\Downloads\\WebAPI-simple\\WebAPI-simple\\obj\\",
+      "outputPath": "D:\\lap trinh wweb 2\\WebAPI-simple\\WebAPI-simple\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
