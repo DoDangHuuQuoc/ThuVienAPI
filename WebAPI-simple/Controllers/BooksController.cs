@@ -1,7 +1,6 @@
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI_simple.CustomActionFilter;
-using WebAPI_simple.Data;
+using System.Text.Json;
 using WebAPI_simple.Models.DTO;
 using WebAPI_simple.Repositories;
 
@@ -11,188 +10,88 @@ namespace WebAPI_simple.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly AppDbContext _dbContext;
         private readonly IBookRepository _bookRepository;
+        private readonly ILogger<BooksController> _logger;
 
-        public BooksController(
-            AppDbContext dbContext,
-            IBookRepository bookRepository)
+        public BooksController(IBookRepository bookRepository, ILogger<BooksController> logger)
         {
-            _dbContext = dbContext;
             _bookRepository = bookRepository;
+            _logger = logger;
         }
 
-        // =========================
-        // GET ALL BOOKS
-        // =========================
+        // 1. Lấy danh sách Sách (Filter, Sort, Pagination)
         [HttpGet("get-all-books")]
+        [Authorize(Roles = "Read")]
         public IActionResult GetAll(
             [FromQuery] string? filterOn,
             [FromQuery] string? filterQuery,
             [FromQuery] string? sortBy,
-            [FromQuery] bool isAscending,
+            [FromQuery] bool isAscending = true,
             [FromQuery] int pageNumber = 1,
             [FromQuery] int pageSize = 100)
         {
-            var allBooks = _bookRepository.GetAllBooks(
-                filterOn,
-                filterQuery,
-                sortBy,
-                isAscending,
-                pageNumber,
-                pageSize);
-
+            _logger.LogInformation("GetAll Book Action method was invoked");
+            var allBooks = _bookRepository.GetAllBooks(filterOn, filterQuery, sortBy, isAscending, pageNumber, pageSize);
+            _logger.LogInformation($"Finished GetAllBook request with data {JsonSerializer.Serialize(allBooks)}");
             return Ok(allBooks);
         }
 
-        // =========================
-        // GET BOOK BY ID
-        // =========================
-        [HttpGet("get-book-by-id/{id}")]
+        // 2. Lấy thông tin Sách theo ID
+        [HttpGet("get-book-by-id/{id:int}")]
+        [Authorize(Roles = "Read")]
         public IActionResult GetBookById([FromRoute] int id)
         {
-            var bookWithIdDTO = _bookRepository.GetBookById(id);
-
-            if (bookWithIdDTO == null)
+            var book = _bookRepository.GetBookById(id);
+            if (book == null)
             {
-                return NotFound(new
-                {
-                    message = "Không tìm thấy sách"
-                });
+                return NotFound();
             }
-
-            return Ok(bookWithIdDTO);
+            return Ok(book);
         }
 
-        // =========================
-        // POST - ADD BOOK
-        // =========================
+        // 3. Thêm Sách mới
         [HttpPost("add-book")]
-        public IActionResult AddBook(
-            [FromBody] AddBookRequestDTO bookDTO)
+        [Authorize(Roles = "Write")]
+        public IActionResult AddBook([FromBody] AddBookRequestDTO addBookRequestDTO)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ValidateAddBook(bookDTO))
-                {
-                    return BadRequest(ModelState);
-                }
-
-                var book = _bookRepository.AddBook(bookDTO);
-
-                return Ok(book);
+                return BadRequest(ModelState);
             }
-            catch (ArgumentException ex)
-            {
-                return BadRequest(new
-                {
-                    message = ex.Message
-                });
-            }
+
+            var book = _bookRepository.AddBook(addBookRequestDTO);
+            return Ok(book);
         }
 
-        // =========================
-        // PUT - UPDATE BOOK
-        // =========================
-        [HttpPut("update-book-by-id/{id}")]
-        public IActionResult UpdateBookById(
-            [FromRoute] int id,
-            [FromBody] AddBookRequestDTO bookDTO)
+        // 4. Cập nhật Sách theo ID
+        [HttpPut("update-book-by-id/{id:int}")]
+        [Authorize(Roles = "Write")]
+        public IActionResult UpdateBookById([FromRoute] int id, [FromBody] AddBookRequestDTO bookDTO)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                if (!ValidateAddBook(bookDTO))
-                {
-                    return BadRequest(ModelState);
-                }
-
-                var updateBook = _bookRepository.UpdateBookById(
-                    id,
-                    bookDTO);
-
-                if (updateBook == null)
-                {
-                    return NotFound(new
-                    {
-                        message = "Không tìm thấy sách"
-                    });
-                }
-
-                return Ok(updateBook);
+                return BadRequest(ModelState);
             }
-            catch (ArgumentException ex)
+
+            var updatedBook = _bookRepository.UpdateBookById(id, bookDTO);
+            if (updatedBook == null)
             {
-                return BadRequest(new
-                {
-                    message = ex.Message
-                });
+                return NotFound();
             }
+            return Ok(updatedBook);
         }
 
-        // =========================
-        // DELETE - DELETE BOOK
-        // =========================
-        [HttpDelete("delete-book-by-id/{id}")]
-        public IActionResult DeleteBookById(
-            [FromRoute] int id)
+        // 5. Xóa Sách theo ID
+        [HttpDelete("delete-book-by-id/{id:int}")]
+        [Authorize(Roles = "Write")]
+        public IActionResult DeleteBookById([FromRoute] int id)
         {
             var deleteBook = _bookRepository.DeleteBookById(id);
-
             if (deleteBook == null)
             {
-                return NotFound(new
-                {
-                    message = "Không tìm thấy sách"
-                });
+                return NotFound();
             }
-
             return Ok(deleteBook);
         }
-
-        // =========================
-        // VALIDATE ADD / UPDATE
-        // =========================
-        #region Private methods
-
-        private bool ValidateAddBook(
-            AddBookRequestDTO addBookRequestDTO)
-        {
-            if (addBookRequestDTO == null)
-            {
-                ModelState.AddModelError(
-                    nameof(addBookRequestDTO),
-                    "Please add book data");
-
-                return false;
-            }
-
-            // Kiểm tra Description
-            if (string.IsNullOrEmpty(
-                addBookRequestDTO.Description))
-            {
-                ModelState.AddModelError(
-                    nameof(addBookRequestDTO.Description),
-                    $"{nameof(addBookRequestDTO.Description)} cannot be null");
-            }
-
-            // Kiểm tra Rate từ 0 đến 5
-            if (addBookRequestDTO.Rate < 0 ||
-                addBookRequestDTO.Rate > 5)
-            {
-                ModelState.AddModelError(
-                    nameof(addBookRequestDTO.Rate),
-                    $"{nameof(addBookRequestDTO.Rate)} cannot be less than 0 and more than 5");
-            }
-
-            if (ModelState.ErrorCount > 0)
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        #endregion
     }
 }
-

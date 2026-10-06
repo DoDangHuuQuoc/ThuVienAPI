@@ -15,7 +15,6 @@ namespace WebAPI_simple.Models.DTO
         public string? Genre { get; set; }
         public string? CoverUrl { get; set; }
         public DateTime DateAdded { get; set; }
-        //navigation Properties -
         public int PublisherID { get; set; }
         public List<int> AuthorIds { get; set; } = new();
     }

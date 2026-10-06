@@ -87,7 +87,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "bookDTO",
+        "Name": "addBookRequestDTO",
         "Type": "WebAPI_simple.Models.DTO.AddBookRequestDTO",
         "IsRequired": true
       }

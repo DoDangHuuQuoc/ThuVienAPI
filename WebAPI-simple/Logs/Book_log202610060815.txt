@@ -1,0 +1,129 @@
+2026-10-06 08:15:13.658 +07:00 [INF] Entity Framework Core 6.0.36 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+2026-10-06 08:15:14.003 +07:00 [INF] Executed DbCommand (116ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [BookAPI];
+2026-10-06 08:15:14.056 +07:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [BookAPI] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2026-10-06 08:15:14.068 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-10-06 08:15:14.129 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2026-10-06 08:15:14.131 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-10-06 08:15:14.144 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-10-06 08:15:14.154 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-10-06 08:15:14.165 +07:00 [INF] Applying migration '20260924071547_InitialDatabaseMigration'.
+2026-10-06 08:15:14.189 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Authors] (
+    [Id] int NOT NULL IDENTITY,
+    [FullName] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Authors] PRIMARY KEY ([Id])
+);
+2026-10-06 08:15:14.191 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Publishers] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Publishers] PRIMARY KEY ([Id])
+);
+2026-10-06 08:15:14.194 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Books] (
+    [Id] int NOT NULL IDENTITY,
+    [Title] nvarchar(max) NOT NULL,
+    [Description] nvarchar(max) NOT NULL,
+    [IsRead] bit NOT NULL,
+    [DateRead] datetime2 NULL,
+    [Rate] int NULL,
+    [Genre] nvarchar(max) NOT NULL,
+    [CoverUrl] nvarchar(max) NULL,
+    [DateAdded] datetime2 NOT NULL,
+    [PublisherID] int NOT NULL,
+    CONSTRAINT [PK_Books] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Books_Publishers_PublisherID] FOREIGN KEY ([PublisherID]) REFERENCES [Publishers] ([Id]) ON DELETE CASCADE
+);
+2026-10-06 08:15:14.217 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Books_Authors] (
+    [Id] int NOT NULL IDENTITY,
+    [BookId] int NOT NULL,
+    [AuthorId] int NOT NULL,
+    CONSTRAINT [PK_Books_Authors] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Books_Authors_Authors_AuthorId] FOREIGN KEY ([AuthorId]) REFERENCES [Authors] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Books_Authors_Books_BookId] FOREIGN KEY ([BookId]) REFERENCES [Books] ([Id]) ON DELETE CASCADE
+);
+2026-10-06 08:15:14.221 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Books_PublisherID] ON [Books] ([PublisherID]);
+2026-10-06 08:15:14.222 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Books_Authors_AuthorId] ON [Books_Authors] ([AuthorId]);
+2026-10-06 08:15:14.222 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Books_Authors_BookId] ON [Books_Authors] ([BookId]);
+2026-10-06 08:15:14.225 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260924071547_InitialDatabaseMigration', N'6.0.36');
+2026-10-06 08:15:14.228 +07:00 [INF] Applying migration '20260929064618_InitialCreate'.
+2026-10-06 08:15:14.231 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260929064618_InitialCreate', N'6.0.36');
+2026-10-06 08:15:14.231 +07:00 [INF] Applying migration '20261005033857_AddImageTable'.
+2026-10-06 08:15:14.236 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Images] (
+    [Id] int NOT NULL IDENTITY,
+    [FileName] nvarchar(max) NOT NULL,
+    [FileDescription] nvarchar(max) NULL,
+    [FileExtension] nvarchar(max) NOT NULL,
+    [FileSizeInBytes] bigint NOT NULL,
+    [FilePath] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Images] PRIMARY KEY ([Id])
+);
+2026-10-06 08:15:15.716 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20261005033857_AddImageTable', N'6.0.36');
+2026-10-06 08:15:21.147 +07:00 [INF] User profile is available. Using 'C:\Users\dodan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-10-06 08:15:21.355 +07:00 [INF] Now listening on: https://localhost:7000
+2026-10-06 08:15:21.357 +07:00 [INF] Now listening on: http://localhost:5000
+2026-10-06 08:15:21.397 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-06 08:15:21.398 +07:00 [INF] Hosting environment: Development
+2026-10-06 08:15:21.398 +07:00 [INF] Content root path: D:\lap trinh wweb 2\WebAPI-simple\WebAPI-simple\
+2026-10-06 08:15:21.822 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/swagger/index.html - -
+2026-10-06 08:15:22.088 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/swagger/index.html - - - 200 - text/html;charset=utf-8 267.9832ms
+2026-10-06 08:15:22.101 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/_vs/browserLink - -
+2026-10-06 08:15:22.101 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/_framework/aspnetcore-browser-refresh.js - -
+2026-10-06 08:15:22.106 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/_framework/aspnetcore-browser-refresh.js - - - 200 14931 application/javascript;+charset=utf-8 5.6303ms
+2026-10-06 08:15:22.161 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 60.3024ms
+2026-10-06 08:15:22.195 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/swagger/v1/swagger.json - -
+2026-10-06 08:15:22.202 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 6.8571ms
+2026-10-06 08:15:36.046 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7000/api/Images/Upload multipart/form-data;+boundary=----WebKitFormBoundary6u2lztBwY0nkLJ4i 282891
+2026-10-06 08:15:36.147 +07:00 [INF] Executing endpoint 'WebAPI_simple.Controllers.ImagesController.Upload (WebAPI-simple)'
+2026-10-06 08:15:36.176 +07:00 [INF] Route matched with {action = "Upload", controller = "Images"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Upload(WebAPI.Models.DTO.ImageUploadRequestDTO) on controller WebAPI_simple.Controllers.ImagesController (WebAPI-simple).
+2026-10-06 08:15:37.613 +07:00 [INF] Entity Framework Core 6.0.36 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+2026-10-06 08:15:38.562 +07:00 [INF] Executed DbCommand (110ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Images] ([FileDescription], [FileExtension], [FileName], [FilePath], [FileSizeInBytes])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Images]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2026-10-06 08:15:38.687 +07:00 [INF] Executing OkObjectResult, writing value of type 'WebAPI_simple.Models.Domain.Image'.
+2026-10-06 08:15:38.713 +07:00 [INF] Executed action WebAPI_simple.Controllers.ImagesController.Upload (WebAPI-simple) in 2528.8852ms
+2026-10-06 08:15:38.717 +07:00 [INF] Executed endpoint 'WebAPI_simple.Controllers.ImagesController.Upload (WebAPI-simple)'
+2026-10-06 08:15:38.737 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7000/api/Images/Upload multipart/form-data;+boundary=----WebKitFormBoundary6u2lztBwY0nkLJ4i 282891 - 200 - application/json;+charset=utf-8 2690.6032ms
+2026-10-06 08:15:53.543 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/api/Images/Download?id=12 - -
+2026-10-06 08:15:53.548 +07:00 [INF] Executing endpoint 'WebAPI_simple.Controllers.ImagesController.DownloadFile (WebAPI-simple)'
+2026-10-06 08:15:53.550 +07:00 [INF] Route matched with {action = "DownloadFile", controller = "Images"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DownloadFile(Int32) on controller WebAPI_simple.Controllers.ImagesController (WebAPI-simple).
+2026-10-06 08:15:53.626 +07:00 [INF] Entity Framework Core 6.0.36 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+2026-10-06 08:15:54.216 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes]
+FROM [Images] AS [i]
+WHERE [i].[Id] = @__Id_0
+2026-10-06 08:15:54.221 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-10-06 08:15:54.223 +07:00 [INF] Executed action WebAPI_simple.Controllers.ImagesController.DownloadFile (WebAPI-simple) in 670.0196ms
+2026-10-06 08:15:54.227 +07:00 [INF] Executed endpoint 'WebAPI_simple.Controllers.ImagesController.DownloadFile (WebAPI-simple)'
+2026-10-06 08:15:54.232 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/api/Images/Download?id=12 - - - 404 - text/plain;+charset=utf-8 688.4023ms
