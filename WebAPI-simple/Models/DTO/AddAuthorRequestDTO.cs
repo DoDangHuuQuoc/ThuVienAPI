@@ -2,6 +2,6 @@
 {
     public class AddAuthorRequestDTO
     {
-        public string FullName { set; get; } = string.Empty;
+        public string FullName { get; set; } = string.Empty;
     }
 }

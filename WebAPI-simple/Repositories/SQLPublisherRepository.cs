@@ -14,7 +14,9 @@ namespace WebAPI_simple.Repositories
 
         public List<PublisherDTO> GetAllPublishers()
         {
+            //Get Data From Database -Domain Model
             var allPublishersDomain = _dbContext.Publishers.ToList();
+            //Map domain models to DTOs
             var allPublisherDTO = new List<PublisherDTO>();
             foreach (var publisherDomain in allPublishersDomain)
             {
@@ -29,9 +31,11 @@ namespace WebAPI_simple.Repositories
 
         public PublisherNoIdDTO? GetPublisherById(int id)
         {
+            // get book Domain model from Db
             var publisherWithIdDomain = _dbContext.Publishers.FirstOrDefault(x => x.Id == id);
             if (publisherWithIdDomain != null)
             {
+                //Map Domain Model to DTOs
                 var publisherNoIdDTO = new PublisherNoIdDTO
                 {
                     Name = publisherWithIdDomain.Name,
@@ -47,6 +51,7 @@ namespace WebAPI_simple.Repositories
             {
                 Name = addPublisherRequestDTO.Name,
             };
+            //Use Domain Model to create Book
             _dbContext.Publishers.Add(publisherDomainModel);
             _dbContext.SaveChanges();
             return addPublisherRequestDTO;

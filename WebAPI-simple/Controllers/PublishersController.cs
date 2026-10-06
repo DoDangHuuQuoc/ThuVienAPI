@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebAPI_simple.Data;
 using WebAPI_simple.Models.DTO;
 using WebAPI_simple.Repositories;
@@ -18,6 +19,7 @@ namespace WebAPI_simple.Controllers
         }
 
         [HttpGet("get-all-publisher")]
+        [Authorize(Roles = "Read")]
         public IActionResult GetAllPublisher()
         {
             var allPublishers = _publisherRepository.GetAllPublishers();
@@ -25,6 +27,7 @@ namespace WebAPI_simple.Controllers
         }
 
         [HttpGet("get-publisher-by-id/{id}")]
+        [Authorize(Roles = "Read")]
         public IActionResult GetPublisherById(int id)
         {
             var publisherWithId = _publisherRepository.GetPublisherById(id);
@@ -36,6 +39,7 @@ namespace WebAPI_simple.Controllers
         }
 
         [HttpPost("add-publisher")]
+        [Authorize(Roles = "Write")]
         public IActionResult AddPublisher([FromBody] AddPublisherRequestDTO addPublisherRequestDTO)
         {
             var publisherAdd = _publisherRepository.AddPublisher(addPublisherRequestDTO);
@@ -43,6 +47,7 @@ namespace WebAPI_simple.Controllers
         }
 
         [HttpPut("update-publisher-by-id/{id}")]
+        [Authorize(Roles = "Write")]
         public IActionResult UpdatePublisherById(int id, [FromBody] PublisherNoIdDTO publisherDTO)
         {
             var publisherUpdate = _publisherRepository.UpdatePublisherById(id, publisherDTO);
@@ -50,6 +55,7 @@ namespace WebAPI_simple.Controllers
         }
 
         [HttpDelete("delete-publisher-by-id/{id}")]
+        [Authorize(Roles = "Write")]
         public IActionResult DeletePublisherById(int id)
         {
             var publisherDelete = _publisherRepository.DeletePublisherById(id);

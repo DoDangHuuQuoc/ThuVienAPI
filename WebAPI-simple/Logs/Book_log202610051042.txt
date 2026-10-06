@@ -1,0 +1,12 @@
+2026-10-05 10:42:50.294 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/api/Images/Download?id=1111 - -
+2026-10-05 10:42:50.312 +07:00 [INF] Executing endpoint 'WebAPI_simple.Controllers.ImagesController.DownloadFile (WebAPI-simple)'
+2026-10-05 10:42:50.313 +07:00 [INF] Route matched with {action = "DownloadFile", controller = "Images"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DownloadFile(Int32) on controller WebAPI_simple.Controllers.ImagesController (WebAPI-simple).
+2026-10-05 10:42:50.316 +07:00 [INF] Entity Framework Core 6.0.36 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+2026-10-05 10:42:50.324 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes]
+FROM [Images] AS [i]
+WHERE [i].[Id] = @__Id_0
+2026-10-05 10:42:50.326 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-10-05 10:42:50.327 +07:00 [INF] Executed action WebAPI_simple.Controllers.ImagesController.DownloadFile (WebAPI-simple) in 11.5465ms
+2026-10-05 10:42:50.328 +07:00 [INF] Executed endpoint 'WebAPI_simple.Controllers.ImagesController.DownloadFile (WebAPI-simple)'
+2026-10-05 10:42:50.330 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/api/Images/Download?id=1111 - - - 404 - text/plain;+charset=utf-8 40.0351ms

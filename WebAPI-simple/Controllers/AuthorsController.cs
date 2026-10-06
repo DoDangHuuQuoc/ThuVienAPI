@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebAPI_simple.Data;
 using WebAPI_simple.Models.DTO;
 using WebAPI_simple.Repositories;
 
@@ -9,51 +8,58 @@ namespace WebAPI_simple.Controllers
     [ApiController]
     public class AuthorsController : ControllerBase
     {
-        private readonly AppDbContext _dbContext;
         private readonly IAuthorRepository _authorRepository;
-        public AuthorsController(AppDbContext dbContext, IAuthorRepository authorRepository)
+
+        public AuthorsController(IAuthorRepository authorRepository)
         {
-            _dbContext = dbContext;
             _authorRepository = authorRepository;
         }
 
-        [HttpGet("get-all-author")]
-        public IActionResult GetAllAuthor()
+        [HttpGet]
+        public async Task<IActionResult> GetAllAuthors()
         {
-            var allAuthors = _authorRepository.GellAllAuthors();
-            return Ok(allAuthors);
+            var authors = await _authorRepository.GetAllAuthorsAsync();
+            return Ok(authors);
         }
 
-        [HttpGet("get-author-by-id/{id}")]
-        public IActionResult GetAuthorById(int id)
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetAuthorById([FromRoute] int id)
         {
-            var authorWithId = _authorRepository.GetAuthorById(id);
-            if (authorWithId == null)
+            var author = await _authorRepository.GetAuthorByIdAsync(id);
+            if (author == null)
             {
-                return NotFound(new { message = "Không tìm thấy tác giả" });
+                return NotFound();
             }
-            return Ok(authorWithId);
+            return Ok(author);
         }
 
-        [HttpPost("add-author")]
-        public IActionResult AddAuthors([FromBody] AddAuthorRequestDTO addAuthorRequestDTO)
+        [HttpPost]
+        public async Task<IActionResult> AddAuthor([FromBody] AddAuthorRequestDTO addAuthorRequestDTO)
         {
-            var authorAdd = _authorRepository.AddAuthor(addAuthorRequestDTO);
-            return Ok(authorAdd);
+            var author = await _authorRepository.AddAuthorAsync(addAuthorRequestDTO);
+            return Ok(author);
         }
 
-        [HttpPut("update-author-by-id/{id}")]
-        public IActionResult UpdateAuthorById(int id, [FromBody] AuthorNoIdDTO authorDTO)
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> UpdateAuthorById([FromRoute] int id, [FromBody] AuthorNoIdDTO authorNoIdDTO)
         {
-            var authorUpdate = _authorRepository.UpdateAuthorById(id, authorDTO);
-            return Ok(authorUpdate);
+            var author = await _authorRepository.UpdateAuthorByIdAsync(id, authorNoIdDTO);
+            if (author == null)
+            {
+                return NotFound();
+            }
+            return Ok(author);
         }
 
-        [HttpDelete("delete-author-by-id/{id}")]
-        public IActionResult DeleteAuthorById(int id)
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteAuthorById([FromRoute] int id)
         {
-            var authorDelete = _authorRepository.DeleteAuthorById(id);
-            return Ok();
+            var deletedAuthor = await _authorRepository.DeleteAuthorByIdAsync(id);
+            if (deletedAuthor == null)
+            {
+                return NotFound();
+            }
+            return Ok(deletedAuthor);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using WebAPI_simple.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using WebAPI_simple.Data;
 using WebAPI_simple.Models.Domain;
 using WebAPI_simple.Models.DTO;
 
@@ -7,71 +8,51 @@ namespace WebAPI_simple.Repositories
     public class SQLAuthorRepository : IAuthorRepository
     {
         private readonly AppDbContext _dbContext;
+
         public SQLAuthorRepository(AppDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public List<AuthorDTO> GellAllAuthors()
+        public async Task<List<Author>> GetAllAuthorsAsync()
         {
-            var allAuthorsDomain = _dbContext.Authors.ToList();
-            var allAuthorDTO = new List<AuthorDTO>();
-            foreach (var authorDomain in allAuthorsDomain)
-            {
-                allAuthorDTO.Add(new AuthorDTO()
-                {
-                    Id = authorDomain.Id,
-                    FullName = authorDomain.FullName
-                });
-            }
-            return allAuthorDTO;
+            return await _dbContext.Authors.ToListAsync();
         }
 
-        public AuthorNoIdDTO? GetAuthorById(int id)
+        public async Task<Author?> GetAuthorByIdAsync(int id)
         {
-            var authorWithIdDomain = _dbContext.Authors.FirstOrDefault(x => x.Id == id);
-            if (authorWithIdDomain == null)
+            return await _dbContext.Authors.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public async Task<Author> AddAuthorAsync(AddAuthorRequestDTO addAuthorRequestDTO)
+        {
+            var authorDomain = new Author
             {
-                return null;
-            }
-            var authorNoIdDTO = new AuthorNoIdDTO
-            {
-                FullName = authorWithIdDomain.FullName,
+                FullName = addAuthorRequestDTO.FullName
             };
-            return authorNoIdDTO;
+            await _dbContext.Authors.AddAsync(authorDomain);
+            await _dbContext.SaveChangesAsync();
+            return authorDomain;
         }
 
-        public AddAuthorRequestDTO AddAuthor(AddAuthorRequestDTO addAuthorRequestDTO)
+        public async Task<Author?> UpdateAuthorByIdAsync(int id, AuthorNoIdDTO authorNoIdDTO)
         {
-            var authorDomainModel = new Author
-            {
-                FullName = addAuthorRequestDTO.FullName,
-            };
-            _dbContext.Authors.Add(authorDomainModel);
-            _dbContext.SaveChanges();
-            return addAuthorRequestDTO;
+            var existingAuthor = await _dbContext.Authors.FirstOrDefaultAsync(x => x.Id == id);
+            if (existingAuthor == null) return null;
+
+            existingAuthor.FullName = authorNoIdDTO.FullName;
+            await _dbContext.SaveChangesAsync();
+            return existingAuthor;
         }
 
-        public AuthorNoIdDTO UpdateAuthorById(int id, AuthorNoIdDTO authorNoIdDTO)
+        public async Task<Author?> DeleteAuthorByIdAsync(int id)
         {
-            var authorDomain = _dbContext.Authors.FirstOrDefault(n => n.Id == id);
-            if (authorDomain != null)
-            {
-                authorDomain.FullName = authorNoIdDTO.FullName;
-                _dbContext.SaveChanges();
-            }
-            return authorNoIdDTO;
-        }
+            var existingAuthor = await _dbContext.Authors.FirstOrDefaultAsync(x => x.Id == id);
+            if (existingAuthor == null) return null;
 
-        public Author? DeleteAuthorById(int id)
-        {
-            var authorDomain = _dbContext.Authors.FirstOrDefault(n => n.Id == id);
-            if (authorDomain != null)
-            {
-                _dbContext.Authors.Remove(authorDomain);
-                _dbContext.SaveChanges();
-            }
-            return null;
+            _dbContext.Authors.Remove(existingAuthor);
+            await _dbContext.SaveChangesAsync();
+            return existingAuthor;
         }
     }
 }

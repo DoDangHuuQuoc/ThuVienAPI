@@ -11,6 +11,7 @@
         public string Name { get; set; } = string.Empty;
     }
 
+    // add model to get Book and Author
     public class PublisherWithBooksAndAuthorsDTO
     {
         public string Name { get; set; } = string.Empty;

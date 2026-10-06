@@ -1,0 +1,53 @@
+2026-10-05 10:43:19.899 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7000/api/Images/Upload multipart/form-data;+boundary=----WebKitFormBoundaryvdiU7JEMBHjNlMQF 291340
+2026-10-05 10:43:19.905 +07:00 [INF] Executing endpoint 'WebAPI_simple.Controllers.ImagesController.Upload (WebAPI-simple)'
+2026-10-05 10:43:19.906 +07:00 [INF] Route matched with {action = "Upload", controller = "Images"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Upload(WebAPI.Models.DTO.ImageUploadRequestDTO) on controller WebAPI_simple.Controllers.ImagesController (WebAPI-simple).
+2026-10-05 10:43:19.932 +07:00 [INF] Entity Framework Core 6.0.36 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+2026-10-05 10:43:19.942 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Images] ([FileDescription], [FileExtension], [FileName], [FilePath], [FileSizeInBytes])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Images]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2026-10-05 10:43:19.947 +07:00 [INF] Executing OkObjectResult, writing value of type 'WebAPI_simple.Models.Domain.Image'.
+2026-10-05 10:43:19.949 +07:00 [INF] Executed action WebAPI_simple.Controllers.ImagesController.Upload (WebAPI-simple) in 39.8693ms
+2026-10-05 10:43:19.950 +07:00 [INF] Executed endpoint 'WebAPI_simple.Controllers.ImagesController.Upload (WebAPI-simple)'
+2026-10-05 10:43:19.953 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7000/api/Images/Upload multipart/form-data;+boundary=----WebKitFormBoundaryvdiU7JEMBHjNlMQF 291340 - 200 - application/json;+charset=utf-8 57.7690ms
+2026-10-05 10:43:33.836 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/api/Images/Download?id=290861 - -
+2026-10-05 10:43:33.838 +07:00 [INF] Executing endpoint 'WebAPI_simple.Controllers.ImagesController.DownloadFile (WebAPI-simple)'
+2026-10-05 10:43:33.839 +07:00 [INF] Route matched with {action = "DownloadFile", controller = "Images"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DownloadFile(Int32) on controller WebAPI_simple.Controllers.ImagesController (WebAPI-simple).
+2026-10-05 10:43:33.841 +07:00 [INF] Entity Framework Core 6.0.36 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+2026-10-05 10:43:33.848 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes]
+FROM [Images] AS [i]
+WHERE [i].[Id] = @__Id_0
+2026-10-05 10:43:33.851 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-10-05 10:43:33.852 +07:00 [INF] Executed action WebAPI_simple.Controllers.ImagesController.DownloadFile (WebAPI-simple) in 11.4722ms
+2026-10-05 10:43:33.854 +07:00 [INF] Executed endpoint 'WebAPI_simple.Controllers.ImagesController.DownloadFile (WebAPI-simple)'
+2026-10-05 10:43:33.855 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/api/Images/Download?id=290861 - - - 404 - text/plain;+charset=utf-8 18.5300ms
+2026-10-05 10:43:40.806 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/api/Images/Download?id=1111444 - -
+2026-10-05 10:43:40.808 +07:00 [INF] Executing endpoint 'WebAPI_simple.Controllers.ImagesController.DownloadFile (WebAPI-simple)'
+2026-10-05 10:43:40.809 +07:00 [INF] Route matched with {action = "DownloadFile", controller = "Images"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DownloadFile(Int32) on controller WebAPI_simple.Controllers.ImagesController (WebAPI-simple).
+2026-10-05 10:43:40.812 +07:00 [INF] Entity Framework Core 6.0.36 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+2026-10-05 10:43:40.815 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[FileDescription], [i].[FileExtension], [i].[FileName], [i].[FilePath], [i].[FileSizeInBytes]
+FROM [Images] AS [i]
+WHERE [i].[Id] = @__Id_0
+2026-10-05 10:43:40.818 +07:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-10-05 10:43:40.820 +07:00 [INF] Executed action WebAPI_simple.Controllers.ImagesController.DownloadFile (WebAPI-simple) in 8.5374ms
+2026-10-05 10:43:40.822 +07:00 [INF] Executed endpoint 'WebAPI_simple.Controllers.ImagesController.DownloadFile (WebAPI-simple)'
+2026-10-05 10:43:40.824 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/api/Images/Download?id=1111444 - - - 404 - text/plain;+charset=utf-8 18.0589ms
+2026-10-05 10:43:58.192 +07:00 [INF] User profile is available. Using 'C:\Users\dodan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-10-05 10:43:58.387 +07:00 [INF] Now listening on: https://localhost:7000
+2026-10-05 10:43:58.389 +07:00 [INF] Now listening on: http://localhost:5000
+2026-10-05 10:43:58.421 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-05 10:43:58.422 +07:00 [INF] Hosting environment: Development
+2026-10-05 10:43:58.422 +07:00 [INF] Content root path: D:\lap trinh wweb 2\WebAPI-simple\WebAPI-simple\
+2026-10-05 10:43:58.937 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/swagger/index.html - -
+2026-10-05 10:43:59.208 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/swagger/index.html - - - 200 - text/html;charset=utf-8 273.7174ms
+2026-10-05 10:43:59.221 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/_vs/browserLink - -
+2026-10-05 10:43:59.221 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/_framework/aspnetcore-browser-refresh.js - -
+2026-10-05 10:43:59.225 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/_framework/aspnetcore-browser-refresh.js - - - 200 14931 application/javascript;+charset=utf-8 4.4390ms
+2026-10-05 10:43:59.273 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 52.0220ms
+2026-10-05 10:43:59.305 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/swagger/v1/swagger.json - -
+2026-10-05 10:43:59.313 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 7.6438ms

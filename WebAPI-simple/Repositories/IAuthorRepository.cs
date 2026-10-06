@@ -5,10 +5,10 @@ namespace WebAPI_simple.Repositories
 {
     public interface IAuthorRepository
     {
-        List<AuthorDTO> GellAllAuthors();
-        AuthorNoIdDTO? GetAuthorById(int id);
-        AddAuthorRequestDTO AddAuthor(AddAuthorRequestDTO addAuthorRequestDTO);
-        AuthorNoIdDTO UpdateAuthorById(int id, AuthorNoIdDTO authorNoIdDTO);
-        Author? DeleteAuthorById(int id);
+        Task<List<Author>> GetAllAuthorsAsync();
+        Task<Author?> GetAuthorByIdAsync(int id);
+        Task<Author> AddAuthorAsync(AddAuthorRequestDTO addAuthorRequestDTO);
+        Task<Author?> UpdateAuthorByIdAsync(int id, AuthorNoIdDTO authorNoIdDTO);
+        Task<Author?> DeleteAuthorByIdAsync(int id);
     }
 }
