@@ -1,0 +1,18 @@
+2026-10-06 10:41:05.905 +07:00 [INF] User profile is available. Using 'C:\Users\dodan\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-10-06 10:41:06.228 +07:00 [INF] Now listening on: https://localhost:7000
+2026-10-06 10:41:06.229 +07:00 [INF] Now listening on: http://localhost:5000
+2026-10-06 10:41:06.291 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-10-06 10:41:06.292 +07:00 [INF] Hosting environment: Development
+2026-10-06 10:41:06.293 +07:00 [INF] Content root path: D:\lap trinh wweb 2\WebAPI-simple\WebAPI-simple\
+2026-10-06 10:41:07.597 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/swagger/index.html - -
+2026-10-06 10:41:07.931 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/swagger/index.html - - - 200 - text/html;charset=utf-8 335.3473ms
+2026-10-06 10:41:07.950 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/_framework/aspnetcore-browser-refresh.js - -
+2026-10-06 10:41:07.950 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/_vs/browserLink - -
+2026-10-06 10:41:07.956 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/_framework/aspnetcore-browser-refresh.js - - - 200 14931 application/javascript;+charset=utf-8 6.0106ms
+2026-10-06 10:41:08.022 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 72.2567ms
+2026-10-06 10:41:08.063 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7000/swagger/v1/swagger.json - -
+2026-10-06 10:41:08.071 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7000/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 8.4856ms
+2026-10-06 10:41:56.541 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7000/api/User/Register application/json 94
+2026-10-06 10:41:57.964 +07:00 [INF] Executing endpoint 'WebAPI_simple.Controllers.UserController.Register (WebAPI-simple)'
+2026-10-06 10:41:57.991 +07:00 [INF] Route matched with {action = "Register", controller = "User"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(WebAPI_simple.Models.DTO.RegisterRequestDTO) on controller WebAPI_simple.Controllers.UserController (WebAPI-simple).
+2026-10-06 10:41:59.355 +07:00 [INF] Entity Framework Core 6.0.36 initialized 'BookAuthDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None

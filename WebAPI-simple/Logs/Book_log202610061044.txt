@@ -1,0 +1,1 @@
+2026-10-06 10:44:06.862 +07:00 [INF] Entity Framework Core 6.0.36 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
